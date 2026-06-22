@@ -1,0 +1,2 @@
+export const PORT = 5555;
+export const mongoURL = "mongodb://sai2006:saichu@ac-z45kuck-shard-00-00.i3bj1sk.mongodb.net:27017,ac-z45kuck-shard-00-01.i3bj1sk.mongodb.net:27017,ac-z45kuck-shard-00-02.i3bj1sk.mongodb.net:27017/?ssl=true&replicaSet=atlas-r3uq5b-shard-0&authSource=admin&appName=Cluster0"
