@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { MdOutlineAddBox } from 'react-icons/md';
-
+import toast from "react-hot-toast"
 import Spinner from '../components/Spinner';
 import BooksCard from '../components/home/BooksCard';
 import BooksTable from '../components/home/BooksTable';
@@ -22,9 +22,10 @@ const Home = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+  console.log(error);
+  toast.error('Failed to fetch books');
+  setLoading(false);
+});
   }, []);
 
   return (

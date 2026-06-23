@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
+import toast from "react-hot-toast"
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -18,8 +19,10 @@ const DeleteBook = () => {
       .then(() => {
         setLoading(false);
         navigate('/');
+        toast.success("Book deleted!")
       })
       .catch((error) => {
+        toast.error('Failed to delete book');
         setLoading(false);
         console.log(error);
         alert('Something went wrong');

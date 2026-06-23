@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
-
+import toast from 'react-hot-toast';
 const CreateBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -25,11 +25,12 @@ const CreateBook = () => {
       .post('http://localhost:5555/books', data)
       .then(() => {
         setLoading(false);
+        toast.success('Book created successfully');
         navigate('/');
       })
       .catch((error) => {
         setLoading(false);
-        alert('An error happened. Please check console.');
+        toast.error('Failed to create book');
         console.log(error);
       });
   };

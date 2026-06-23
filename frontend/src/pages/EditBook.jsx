@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
+import toast from 'react-hot-toast';
 
 const EditBook = () => {
   const [title, setTitle] = useState('');
@@ -45,11 +46,12 @@ const EditBook = () => {
       .then(() => {
         setLoading(false);
         navigate('/');
+        toast.success("Book edited!")
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
-        alert('Something went wrong');
+        toast.error("Book cannot be edited...error ig")
       });
   };
 
